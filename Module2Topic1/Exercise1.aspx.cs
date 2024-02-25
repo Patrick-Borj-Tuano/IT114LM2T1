@@ -13,5 +13,22 @@ namespace Module1Exercise1
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            //this.Span1.InnerHtml = "Now playing Somewhere Only We Know - Keane";
+
+            if (this.Span1.InnerHtml == "Now playing Somewhere Only We Know - Keane")
+            {
+                this.Span1.InnerHtml = "This is the Title";
+                return;
+            }
+
+            else
+            {
+                this.Span1.InnerHtml = "Now playing Somewhere Only We Know - Keane";
+                return;
+            }
+        }
     }
 }
