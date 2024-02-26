@@ -11,27 +11,26 @@ namespace Module1Exercise1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
         }
 
         protected void Submit_Click(object sender, EventArgs e)
         {
-            // Check if all validation controls are valid
-            if (IsValid)
+            if (Page.IsValid)
             {
-                // Concatenate the inputted texts
+                // All validations passed, proceed with form submission
+                // Display all the inputted texts in the "result" label
                 string resultText = $"Full Name: {fullName.Text}<br />";
                 resultText += $"Age: {age.Text}<br />";
                 resultText += $"Email: {email.Text}<br />";
                 resultText += $"Confirm Email: {confirmEmail.Text}<br />";
 
-                // Display the concatenated texts in the "result" label
                 result.Text = resultText;
             }
             else
             {
-                // Validation failed, clear the result label
-                result.Text = "";
+                // Validation failed, do not proceed with form submission
+                result.Text = "Please fix the validation errors.";
             }
         }
     }
